@@ -22,7 +22,7 @@ define('DB','meu_db');
                 $sql = "INSERT INTO usuarios (nome, descricao) VALUES ('$nome', '$descricao')";
                 mysqli_query($conexao,$sql);
                  if(mysqli_affected_rows($conexao)>0){
-                    header('location: index.php?status=success');
+                    header('location: listagem.php?status=success');
                     echo "Usuário inserido com sucesso";
 
                  }
