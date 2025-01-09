@@ -2,7 +2,7 @@
 require 'conexao.php'; // Incluindo a conexão
 
 // Verificando se os dados foram enviados via POST
-if (isset($_POST['nome'], $_POST['descricao'])) {
+if (isset($_POST['nome'])) {
     $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
     $descricao = mysqli_real_escape_string($conexao, $_POST['descricao']);
 

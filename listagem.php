@@ -79,7 +79,8 @@ require 'conexao.php';
 
 <body>
     <h1>Lista de Usuários</h1>
-    <a href="index.php">Voltar</a>
+    <a href="index.php" style="text-decoration: none; display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #fff; border-radius: 5px; text-align: center;">Voltar</a>
+
     <table>
         <thead>
             <tr>

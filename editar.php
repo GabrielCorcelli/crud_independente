@@ -24,16 +24,19 @@ require 'conexao.php';
                             if(mysqli_num_rows($query) > 0){
                                 $usuario = mysqli_fetch_array($query);
                         ?>
-            <div class="form-group">
-                <label for="nome">Digite seu nome</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" value="<?=$usuario['nome']?>">
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <textarea id="descricao" name="descricao" placeholder="Digite uma descrição"><?=$usuario['descricao']?></textarea>
+                        <form action="update_usuario.php" method="post">
+    <div class="form-group">
+        <label for="nome">Digite seu nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" value="<?=$usuario['nome']?>">
+    </div>
+    <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" placeholder="Digite uma descrição"><?=$usuario['descricao']?></textarea>
+    </div>
+    <input type="hidden" name="usuario_id" value="<?=$usuario['id']?>">
+    <button type="submit" name="update_usuario">Atualizar</button>
+</form>
 
-            </div>
-                    <button type="submit"name ="update_usuario">Atualizar</button>
                   
                     <?php 
                             }
