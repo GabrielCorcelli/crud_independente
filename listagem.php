@@ -106,10 +106,10 @@ if (mysqli_num_rows($usuarios) > 0) {
             <td><?= htmlspecialchars($usuario['nome']) ?></td>
             <td><?= htmlspecialchars($usuario['descricao']) ?></td>
             <td class="actions">
-                <!-- Link para editar -->
+               
                 <a href="editar.php?id=<?= urlencode($usuario['id']) ?>" class="btn btn-edit">Editar</a>
 
-                <!-- Formulário para excluir -->
+                
                 <form action="excluir.php" method="post" style="display:inline;">
                     <button onclick="return confirm('Certeza que quer excluir?')" 
                             type="submit" 
