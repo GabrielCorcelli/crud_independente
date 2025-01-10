@@ -96,23 +96,43 @@ require 'conexao.php';
             $sql = 'SELECT * FROM usuarios';
             $usuarios = mysqli_query($conexao, $sql);
 
-            if (mysqli_num_rows($usuarios) > 0) {
-                // Loop para exibir os usuários na tabela
-                while ($usuario = mysqli_fetch_assoc($usuarios)) {
-                    echo "<tr>";
-                    echo "<td>{$usuario['id']}</td>";
-                    echo "<td>{$usuario['nome']}</td>";
-                    echo "<td>{$usuario['descricao']}</td>";
-                    echo "<td class='actions'>
-                            <a href='editar.php?id={$usuario['id']}' class='btn btn-edit'>Editar</a>
-                            <a href='excluir.php?id={$usuario['id']}' class='btn btn-delete'>Excluir</a>
-                          </td>";
-                    echo "</tr>";
-                }
-            } else {                                                                                                                                              
-                echo "<tr><td colspan='4'>Nenhum usuário encontrado</td></tr>";
-            }
-            ?>
+            
+if (mysqli_num_rows($usuarios) > 0) {
+    // Loop para exibir os usuários na tabela
+    while ($usuario = mysqli_fetch_assoc($usuarios)) {
+        ?>
+        <tr>
+            <td><?= htmlspecialchars($usuario['id']) ?></td>
+            <td><?= htmlspecialchars($usuario['nome']) ?></td>
+            <td><?= htmlspecialchars($usuario['descricao']) ?></td>
+            <td class="actions">
+                <!-- Link para editar -->
+                <a href="editar.php?id=<?= urlencode($usuario['id']) ?>" class="btn btn-edit">Editar</a>
+
+                <!-- Formulário para excluir -->
+                <form action="excluir.php" method="post" style="display:inline;">
+                    <button onclick="return confirm('Certeza que quer excluir?')" 
+                            type="submit" 
+                            name="delete_usuario" 
+                            value="<?= htmlspecialchars($usuario['id']) ?>" 
+                            class="btn btn-delete">
+                        Excluir
+                    </button>
+                </form>
+            </td>
+        </tr>
+        <?php
+    }
+} else {
+    ?>
+    <tr>
+        <td colspan="4">Nenhum usuário encontrado</td>
+    </tr>
+    <?php
+}
+?>
+
+            
         </tbody>
     </table>
 </body>
