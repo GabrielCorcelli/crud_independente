@@ -18,7 +18,7 @@
                 <label for="descricao">Descrição</label>
                 <textarea id="descricao" name="descricao" placeholder="Digite uma descrição"></textarea>
             </div>
-            <button type="submit">Enviar</button>
+            <button type="submit" class="button">Enviar</button>
             <br>
             <br>
             <a href="listagem.php" style="text-decoration: none; display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #fff; border-radius: 5px; text-align: center;">Listar usuários</a>
